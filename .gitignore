@@ -1,0 +1,106 @@
+### ---------------------------------------
+###  IntelliJ IDEA / JetBrains
+### ---------------------------------------
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+classes/
+
+# Plugin-specific folders
+.idea_modules/
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf/
+
+# Databases / IDE state
+.idea/**/dataSources/
+.idea/**/dataSources.local.xml
+
+### ---------------------------------------
+###  Kotlin / Java
+### ---------------------------------------
+*.class
+*.kt~
+*.java~
+
+### ---------------------------------------
+###  Gradle
+### ---------------------------------------
+.gradle/
+build/
+*/build/
+
+# Local Gradle configs
+gradle-app.setting
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+### ---------------------------------------
+###  Logs
+### ---------------------------------------
+logs/
+*.log
+*.log.*
+spring.log
+
+### ---------------------------------------
+###  System files
+### ---------------------------------------
+.DS_Store
+Thumbs.db
+
+### ---------------------------------------
+###  Environment files (never commit secrets)
+### ---------------------------------------
+.env
+.env.*
+*.local.env
+*.secret
+secret.yaml
+secrets/
+
+### ---------------------------------------
+###  Test / Coverage / Reports
+### ---------------------------------------
+test-results/
+*/test-results/
+reports/
+*/reports/
+jacoco/
+.coverage/
+*.ec
+
+### ---------------------------------------
+###  Kotlin KAPT (annotation processing)
+### ---------------------------------------
+kapt/
+*/kapt/
+*/kapt3/
+*/generated/
+
+### ---------------------------------------
+###  Temporary / Cache
+### ---------------------------------------
+tmp/
+temp/
+.cache/
+.vscode/
+*.swp
+*.swo
+
+### ---------------------------------------
+###  Docker
+### ---------------------------------------
+docker-data/
+docker-compose.override.yml
+
+### ---------------------------------------
+###  Node (solo si usas scripts o tooling)
+### ---------------------------------------
+node_modules/
+npm-debug.log
+yarn-error.log
