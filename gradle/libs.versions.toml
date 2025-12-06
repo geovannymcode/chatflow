@@ -1,0 +1,103 @@
+# gradle/libs.versions.toml
+
+[versions]
+# Kotlin & JVM
+kotlin = "2.0.21"
+java = "21"
+
+# Spring
+spring-boot = "3.3.5"
+spring-dependency-management = "1.1.6"
+
+# Database
+postgresql = "42.7.4"
+hikari = "5.1.0"
+
+# Redis
+lettuce = "6.4.0.RELEASE"
+
+# RabbitMQ
+spring-amqp = "3.1.7"
+
+# Security
+jjwt = "0.12.6"
+bcrypt = "0.10.2"
+
+# Utilities
+jackson = "2.18.0"
+
+# Testing
+junit = "5.11.2"
+mockk = "1.13.12"
+testcontainers = "1.20.2"
+
+# Plugins
+ktlint = "12.1.1"
+
+
+[libraries]
+# Spring Boot Starters
+spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter" }
+spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }
+spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
+spring-boot-starter-data-redis = { module = "org.springframework.boot:spring-boot-starter-data-redis" }
+spring-boot-starter-amqp = { module = "org.springframework.boot:spring-boot-starter-amqp" }
+spring-boot-starter-websocket = { module = "org.springframework.boot:spring-boot-starter-websocket" }
+spring-boot-starter-security = { module = "org.springframework.boot:spring-boot-starter-security" }
+spring-boot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation" }
+spring-boot-starter-mail = { module = "org.springframework.boot:spring-boot-starter-mail" }
+spring-boot-starter-thymeleaf = { module = "org.springframework.boot:spring-boot-starter-thymeleaf" }
+spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
+spring-boot-configuration-processor = { module = "org.springframework.boot:spring-boot-configuration-processor" }
+
+# Kotlin
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+
+# Jackson
+jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson" }
+jackson-datatype-jsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson" }
+
+# Database
+postgresql = { module = "org.postgresql:postgresql", version.ref = "postgresql" }
+
+# Security
+jjwt-api = { module = "io.jsonwebtoken:jjwt-api", version.ref = "jjwt" }
+jjwt-impl = { module = "io.jsonwebtoken:jjwt-impl", version.ref = "jjwt" }
+jjwt-jackson = { module = "io.jsonwebtoken:jjwt-jackson", version.ref = "jjwt" }
+bcrypt = { module = "at.favre.lib:bcrypt", version.ref = "bcrypt" }
+
+# Testing
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+spring-security-test = { module = "org.springframework.security:spring-security-test" }
+testcontainers-bom = { module = "org.testcontainers:testcontainers-bom", version.ref = "testcontainers" }
+testcontainers-junit = { module = "org.testcontainers:junit-jupiter" }
+testcontainers-postgresql = { module = "org.testcontainers:postgresql" }
+testcontainers-rabbitmq = { module = "org.testcontainers:rabbitmq" }
+
+
+[bundles]
+# Bundle de Jackson para Kotlin
+jackson = ["jackson-module-kotlin", "jackson-datatype-jsr310"]
+
+# Bundle de JWT
+jwt = ["jjwt-api", "jjwt-impl", "jjwt-jackson"]
+
+# Bundle de testing para módulos "core" (sin Spring Boot)
+testing-core = ["junit-jupiter", "mockk"]
+
+# Bundle de testing para servicios Spring Boot
+testing-spring = ["spring-boot-starter-test", "spring-security-test"]
+
+# Bundle de testcontainers
+testcontainers = ["testcontainers-junit", "testcontainers-postgresql", "testcontainers-rabbitmq"]
+
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
+kotlin-jpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = "kotlin" }
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
