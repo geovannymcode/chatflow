@@ -11,6 +11,7 @@ java {
 }
 
 dependencies {
+    implementation(libs.bundles.jackson)
     // Si solo son DTOs de eventos, probablemente nada aquí
     testImplementation(libs.bundles.testing.core)
 }
