@@ -19,3 +19,29 @@ sealed class UserEvent {
     abstract val userId: UUID
     abstract val occurredAt: Instant
 }
+
+data class UserRegisteredEvent(
+    override val userId: UUID,
+    val email: String,
+    val name: String?,
+    override val occurredAt: Instant = Instant.now()
+) : UserEvent()
+
+data class UserVerifiedEvent(
+    override val userId: UUID,
+    override val occurredAt: Instant = Instant.now()
+) : UserEvent()
+
+data class PasswordResetRequestedEvent(
+    override val userId: UUID,
+    val email: String,
+    val resetToken: String,
+    override val occurredAt: Instant = Instant.now()
+) : UserEvent()
+
+data class ResendVerificationRequestedEvent(
+    override val userId: UUID,
+    val email: String,
+    val verificationToken: String,
+    override val occurredAt: Instant = Instant.now()
+) : UserEvent()
