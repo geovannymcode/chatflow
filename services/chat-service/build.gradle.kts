@@ -1,4 +1,4 @@
-// services/user-service/build.gradle.kts
+// services/chat-service/build.gradle.kts
 
 plugins {
     alias(libs.plugins.spring.boot)
@@ -7,33 +7,27 @@ plugins {
     alias(libs.plugins.kotlin.spring)
 }
 
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(libs.versions.java.get().toInt()))
-    }
-}
-
 dependencies {
+    // Módulos internos
     implementation(project(":shared:domain"))
     implementation(project(":shared:events"))
 
-// Spring
+    // Spring
     implementation(libs.spring.boot.starter.web)
     implementation(libs.spring.boot.starter.data.jpa)
     implementation(libs.spring.boot.starter.data.redis)
     implementation(libs.spring.boot.starter.amqp)
+    implementation(libs.spring.boot.starter.websocket)
     implementation(libs.spring.boot.starter.security)
     implementation(libs.spring.boot.starter.validation)
 
     // Database
     runtimeOnly(libs.postgresql)
 
-    // Security
+    // JWT (para validar tokens)
     implementation(libs.bundles.jwt)
-    implementation(libs.bcrypt)
 
     // Testing
     testImplementation(libs.bundles.testing.core)
     testImplementation(libs.bundles.testcontainers)
-    testImplementation(libs.spring.security.test)
 }
