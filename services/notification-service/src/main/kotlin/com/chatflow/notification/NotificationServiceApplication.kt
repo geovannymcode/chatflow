@@ -1,4 +1,11 @@
 package com.chatflow.notification
 
-class NotificationServiceApplication {
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
+
+@SpringBootApplication
+class NotificationServiceApplication
+
+fun main(args: Array<String>) {
+    runApplication<NotificationServiceApplication>(*args)
 }
